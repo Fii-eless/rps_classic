@@ -3,8 +3,7 @@ gameStart = () => {
     let startGame = confirm('Shall we play a game of Rock-Paper-Scissors?');
 
     startGame ? getPlayerChoice() : endGame() ;
-    getPlayerChoice === 'rock' || getPlayerChoice === 'paper' || getPlayerChoice === 'scissors' ? gamePlay() : 
-    getPlayerChoice ? didNotChoose() :
+    getPlayerChoice === 'rock' || getPlayerChoice === 'paper' || getPlayerChoice === 'scissors' ? gamePlay() : didNotChoose();
     
 }
 
@@ -19,9 +18,11 @@ const computerChoice = getComputerChoice();
 console.log(computerChoice);
 
 //define a function that lets player enter rock, paper or scissors
-const getPlayerChoice = prompt("Please enter 'rock', 'paper', or ''scissors");
-const playerChoice = getPlayerChoice.trim().toLowerCase();
-console.log(playerChoice);
+getPlayerChoice = () => {
+    const choose = prompt("Please enter 'rock', 'paper', or ''scissors");
+const playerChoice = choose.trim().toLowerCase();
+return playerChoice;
+}
 
 
 //define a function for gameplay logic using playerChoice vs computerChoice
@@ -38,4 +39,6 @@ console.log(playerChoice);
 gamePlay();
 
 endGame = () => alert("You're not in the mood, maybe later!");
+
+didNotChoose = () => alert("You did not enter 'rock', 'papper' or 'scissors'. Let's try again!")
 
