@@ -1,7 +1,7 @@
 //define a function to initialize game
 const gameStart = () => {
     const startGame = confirm('Shall we play a game of Rock-Paper-Scissors?');
-    startGame ? playGame() : alert("You're not in the mood, maybe later!");
+    startGame ? playRounds() : alert("You're not in the mood, maybe later!");
 };
 
 //define playGame function with loops
@@ -25,6 +25,41 @@ const playGame = () => {
         const computerChoice = getComputerChoice();
         const result = gamePlay(computerChoice , playerChoice);
         displayResult(result);
+
+        // let round = 1;
+        let computerScore = 0;
+        let playerScore = 0;
+        const computerWins = computerTriumph(result);
+        const playerWins = playerTriumph(result);
+
+        if (computerWins) {
+            // round++
+            computerScore++;
+            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
+            break;
+        } else if (playerWins){
+            // round++
+            playerScore++;
+            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
+            break;
+        }else {
+            // round++
+            computerScore++;
+            playerScore++;
+            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
+            break;
+        }
+        // const playOn = playRounds();
+        // const callWinner = declareChamp(computerScore , playerScore);
+
+    //    const playOn = playRounds();
+    //    if (playOn) {
+    //     continue
+    //    } else {
+    //     return callWinner;
+    //     break;
+       //}
+        
     }
 };
 
@@ -75,5 +110,48 @@ const getComputerChoice = () => {
 }
 const displayResult = (result) => {
     console.log(result);}
+
+    let round = 1;
+    // let computerScore = 0;
+    // let playerScore = 0;
+    const computerTriumph = (result) => {
+        const compWins = result.includes("Computer wins");
+        return compWins;
+    }
+    const playerTriumph = (result) => {
+        const pWins = result.includes("You win");
+        return pWins;
+    }
+    // displayScores = () => (
+    //     if (computerWins) {
+    //         computerScore++;
+    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
+    //     } else if (playerWins){
+    //         playerScore++;
+    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
+    //     }else {
+    //         computerScore++;
+    //         playerScore++;
+    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
+    //     }
+    // )
+   
+const playRounds = () => {
+    while (round <= 5) {
+        console.log(`Round ${round}`);
+        playGame();
+        round++;
+    }
+}
+
+const declareChamp = (computerScore , playerScore) => {
+    if (computerScore === playerScore) {
+        console.log(`Computer(${computerScore} : Player(${playerScore}\nIt is a tie!))`);
+    } else if (computerScore > playerScore) {
+        console.log(`Computer(${computerScore} : Player(${playerScore}\nComputer is Champion!))`);
+    } else {
+        console.log(`Computer(${computerScore} : Player(${playerScore}\nYou are Champion!))`);
+    }
+}
 
 gameStart();
