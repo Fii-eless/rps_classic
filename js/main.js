@@ -25,42 +25,8 @@ const playGame = () => {
         const computerChoice = getComputerChoice();
         const result = gamePlay(computerChoice , playerChoice);
         displayResult(result);
-
-        // let round = 1;
-        let computerScore = 0;
-        let playerScore = 0;
-        const computerWins = computerTriumph(result);
-        const playerWins = playerTriumph(result);
-
-        if (computerWins) {
-            // round++
-            computerScore++;
-            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
-            break;
-        } else if (playerWins){
-            // round++
-            playerScore++;
-            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
-            break;
-        }else {
-            // round++
-            computerScore++;
-            playerScore++;
-            console.log(`Computer : ${computerScore}\nPlayer : ${playerScore}`);
-            break;
-        }
-        // const playOn = playRounds();
-        // const callWinner = declareChamp(computerScore , playerScore);
-
-    //    const playOn = playRounds();
-    //    if (playOn) {
-    //     continue
-    //    } else {
-    //     return callWinner;
-    //     break;
-       //}
-        
-    }
+        return result;
+    };
 };
 
 //create function that makes a random choice between rock, paper and scissors
@@ -111,46 +77,56 @@ const getComputerChoice = () => {
 const displayResult = (result) => {
     console.log(result);}
 
-    let round = 1;
-    // let computerScore = 0;
-    // let playerScore = 0;
-    const computerTriumph = (result) => {
-        const compWins = result.includes("Computer wins");
-        return compWins;
-    }
-    const playerTriumph = (result) => {
-        const pWins = result.includes("You win");
-        return pWins;
-    }
-    // displayScores = () => (
-    //     if (computerWins) {
-    //         computerScore++;
-    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
-    //     } else if (playerWins){
-    //         playerScore++;
-    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
-    //     }else {
-    //         computerScore++;
-    //         playerScore++;
-    //         console.log(`Round ${round}:\nComputer(${computerScore}) : Player(${playerScore})`)
-    //     }
-    // )
-   
+const computerTriumph = (playOn) => {
+    const compWins = playOn.includes("Computer wins");
+    return compWins;
+}
+const playerTriumph = (playOn) => {
+    const pWins = playOn.includes("You win");
+    return pWins;
+}
+ 
+// Function calls playGame five times and returns score after each round
 const playRounds = () => {
+    let round = 1
+    let computerScore = 0;
+    let playerScore = 0;
+   
     while (round <= 5) {
         console.log(`Round ${round}`);
-        playGame();
+        // playGame();
+        const playOn = playGame();
+        const computerWins = computerTriumph(playOn);
+        const playerWins = playerTriumph(playOn);
+        
+        if (computerWins) {
+            computerScore++;
+            console.log(`Computer(${computerScore}) : Player(${playerScore})`)
+        } else if (playerWins){
+            playerScore++;
+            console.log(`Computer(${computerScore}) : Player(${playerScore})`)
+        }else {
+            computerScore++;
+            playerScore++;
+            console.log(`Computer(${computerScore}) : Player(${playerScore})`)
+        }
+        if (round === 5) {
+            const callWinner = declareChamp(computerScore , playerScore);
+            return callWinner;
+        }
+
         round++;
     }
 }
 
+//After 5 rounds of play, function names a champion
 const declareChamp = (computerScore , playerScore) => {
     if (computerScore === playerScore) {
-        console.log(`Computer(${computerScore} : Player(${playerScore}\nIt is a tie!))`);
+        console.log(`\nComputer(${computerScore}) : Player(${playerScore})\nIt is a tie!`);
     } else if (computerScore > playerScore) {
-        console.log(`Computer(${computerScore} : Player(${playerScore}\nComputer is Champion!))`);
+        console.log(`\nComputer(${computerScore}) : Player(${playerScore})\nComputer is Champion!`);
     } else {
-        console.log(`Computer(${computerScore} : Player(${playerScore}\nYou are Champion!))`);
+        console.log(`\nComputer(${computerScore}) : Player(${playerScore})\nYou are Champion!`);
     }
 }
 
