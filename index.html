@@ -5,28 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game - Rock Paper Scissors</title>
-    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/rps.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <div class="home">
         <h1>Break Your Tie</h1>
-        <div class="smallTalk">To do or not to do? Do you have to between either? The guilt of the consequences of a random choice should not be on you. 
-            The gods invented Rock-Paper-Scissors to deal with that</div>
-        <div class="playArea">
-            <div>Break the tie. Choose One!</div>
-            <div class="choices">
-                <div class="choice rock">
-                    <img src="">
-                    <button>Rock</button>
+        <div class="smallTalk">
+            <p>To do or not to do? Do you have to choose between either? The guilt of the consequences of a random choice should not be on you. 
+            The gods invented Rock-Paper-Scissors to deal with that</p>
+            <h3>Let this be your guide:</h3>
+            <p>If you are here, then you have a choice to make between two options. As a matter of caution, be sure that both options are equally weighted
+                and choosing either would not result in significant greater or worse consequences. 
+                Or maybe, you are completely lost as to what is the right choice and must pick one anyway, despite the outcome. This is how we will play:
+                <ul>
+                    <li>Assign your win/loss to a particular outcome. Eg, if I win, I do option A or vice versa</li>
+                    <li>You will play 5 rounds of games, not counting ties</li>
+                    <li>In the end, you make the real-life choice, based on the results the gods give you</li>
+                </ul>
+                If you are satisfied with these, go on and start playing.
+            </p>
+        </div>
+        <div class="field">
+            <div class="field playArea">
+                <h2>Break the tie. Choose One!</h2>
+                <div class="choices">
+                    <div class="choice" id="rock">
+                        <img src="img/rock.png" alt="A piece of black rock" width="auto" height="70px">
+                        <p>Rock</p>
+                    </div>
+                    <div class="choice" id="paper">
+                        <img src="img/paper.jpg" alt="A white piece of straightened crumpled paper" width="auto" height="70px">
+                        <p>Paper</p>
+                    </div>
+                    <div class="choice" id="scissors">
+                        <img src="img/scissors.png" alt="A black pair of scissors" width="auto" height="70px">
+                        <p>Scissors</p>
+                    </div>
                 </div>
-                <div class="choice paper">
-                    <img src="">
-                    <button>Paper</button>
-                </div>
-                <div class="choice scissors">
-                    <img src="">
-                    <button>Scissors</button>
+                <div class="resultBox">
+                    <output id="showResult"></output>
+                    <output id="rounds"></output>
+                    <div class="resultArea">
+                        <div class="playerSide">
+                            <output id="playerScore"></output>
+                            <div>Your Score</div>
+                        </div>
+                        <div class="computerSide">
+                            <output id="computerScore"></output>
+                            <div>Computer Score</div>
+                        </div>
+                    </div>
+                    <output id="declaration"></output>
                 </div>
             </div>
-            
         </div>
+        <div class="footer smallTalk"></div>
+    </div>
+</body>
