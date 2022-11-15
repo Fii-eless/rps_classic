@@ -13,3 +13,7 @@ What I learned:
 syntax can easily be googled, algorithm, not so much.
 calling your functions in the right places is just as important as defining right function.
 I still know very little. Haha. Let's work on changing that, shall we?
+Fast forward. I am almost at the end of the fundamentals course and have been able to put the game in the dom of my webpage. (Bye bye "console.log")
+I am aware that my commit game is horrible, and I will work on improving that.
+I also forgot a lot of my css, but as long as my javascript works, I am content.
+For now, enjoy this rickety ship.
