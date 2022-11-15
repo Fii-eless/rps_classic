@@ -111,12 +111,16 @@ const chooseRock = (e) => {
     getScore(result);
  };
  const choosePaper = (e) => {
+    let playerChoice = "";
     playerChoice += "paper";
-    getComputerChoice();
+    let result = playNow(playerChoice);
+    getScore(result);
  };
  const chooseScissors = (e) => {
+    let playerChoice = "";
     playerChoice += "scissors";
-    getComputerChoice();
+    let result = playNow(playerChoice);
+    getScore(result);
  };
 
 rock.addEventListener('click', chooseRock);
