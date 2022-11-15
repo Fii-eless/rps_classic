@@ -1,0 +1,120 @@
+html {
+    box-sizing: border-box;
+    background-image: url("../img/river2.jpg");
+    background-position: center;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+    color: rgb(240, 248, 255);
+  }
+  
+  body {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .smallTalk {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .smallTalk > * {
+    /* border: 2px solid yellow; */
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .field {
+    min-height: 20rem;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .field > * {
+    display: flex;
+    gap: 30px;
+    border-color: rgb(238, 214, 147);
+  }
+  .choice {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgb(192, 192, 101);
+    align-items: center;
+    justify-content: center;
+  }
+  .choice > * {
+    flex: 0 0 auto;
+  }
+  .playArea > * {
+    margin: 20px;
+  }
+  .playArea > .resultBox {
+    height: 20rem;
+    width: 30rem;
+    border: 4px solid rgb(190, 226, 90);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 30px;
+  }
+  .resultBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .resultArea {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex: 2 0 auto;
+    width: 400px;
+    gap: 8px;
+  }
+  .round {
+    display: flex;
+    flex-direction: column;
+  }
+  .round > * {
+    margin: 5px;
+  }
+  .declaration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 0 auto;
+    border: 4px solid rgb(245, 248, 49);
+  }
+  .display {
+    width: 50px;
+    height: 30px;
+    border: 4px solid wheat;
+  }
+  .side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .side > * {
+    margin: 4px;
+  }
+
+  .showIt {
+    width: 400px;
+    height: 50px;
+    border: 4px solid rgb(192, 192, 101);
+    flex: 0 0 auto;
+  }
